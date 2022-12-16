@@ -18,6 +18,8 @@ export default {
 
 <template>
 
+  <FilmList />
+  <HomeSection />
 
 </template>
 

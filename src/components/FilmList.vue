@@ -9,17 +9,93 @@ export default {
   data() {
     return {
       store,
+      activeImage: 0,
+      timer: 0,
     }
-  }
+  },
+  methods: {
+    // The method takes the first element of the MovieList array and pushes it to the end of the array. This has the effect of shifting all of the elements in the array to the left by one position.
+    shiftSlidesLeft() {
+      this.store.MovieList.push(this.store.MovieList.shift());
+    },
+    // The method does the opposite, taking the last element of the MovieList array and unshifting it to the beginning of the array, effectively shifting all of the elements to the right by one position.
+    shiftSlidesRight() {
+      this.store.MovieList.unshift(this.store.MovieList.pop());
+    },
+    // The method calls the shiftSlidesLeft method, and then sets the activeImage property to the previous value minus one. This has the effect of showing the next image in the array.
+    nextImage() {
+      this.shiftSlidesLeft();
+      this.activeImage--;
+    },
+    // The method is similar, but calls the shiftSlidesRight method and sets the activeImage property to the previous value plus one. This has the effect of showing the previous image in the array.
+    prevImage() {
+      this.shiftSlidesRight();
+      this.activeImage++;
+    },
+    // start() {
+    //   this.timer = setInterval(() => {
+    //     this.nextImage();
+    //   }, 3000);
+    // },
+    // pause() {
+    //   clearInterval(this.timer);
+    // },
+  },
+  // mounted() {
+  //   this.start();
+  // },
 }
 </script>
 
 <template>
-
-  <CharacterCard />
-
+  <div class="container-slides">
+    <div class="ms_cards container">
+      <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4">
+        <div class="col" v-for="(film, index) in store.MovieList" :key="film.id">
+          <FilmCard v-if="index <= 3" :info="film" />
+        </div>
+      </div>
+    </div>
+    <div class="prev" @click="prevImage"></div>
+    <div class="next" @click="nextImage"></div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
+
+@use '../styles/general.scss' as *;
+@use '../styles/partials/mixins' as *;
+
+.container {
+  max-width: 1500px !important;
+}
+
+.container-slides {
+  padding-top: 10vh;
+  @include center();
+  position: relative;
+}
+
+.prev {
+  margin: 2em;
+  left: 0;
+  background-image: url("../assets/img/chevron-sinistra.png");
+  height: 64px;
+  width: 64px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.next {
+  margin: 2em;
+  right: 0;
+  background-image: url("../assets/img/chevron-destra.png");
+  height: 64px;
+  width: 64px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 999;
+}
 </style>
