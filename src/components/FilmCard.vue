@@ -4,6 +4,15 @@ export default {
   props: {
     info: Object,
   },
+  computed: {
+    rating() {
+      let voteStars = this.info.vote_average / 2;
+
+      voteStars = Math.round(voteStars);
+
+      return voteStars;
+    },
+  },
 }
 </script>
 
@@ -13,7 +22,14 @@ export default {
     <div class="card-body">
       <h5 class="card-title">{{ info.title }}</h5>
       <p class="card-text">{{ info.original_title }}</p>
-      <p class="card-text">{{ info.vote_average }}</p>
+
+      <div class="ms_rating-stars">
+        <template v-for="n in 5">
+          <img v-if="n <= rating" src="../assets/img/full-star.png" alt="stella piena">
+          <img v-else src="../assets/img/empty-star.png" alt="stella vuota">
+        </template>
+      </div>
+
       <p class="card-text">{{ info.overview }}</p>
       <p class="card-text">{{ info.original_language }}
         <span>
@@ -28,4 +44,10 @@ export default {
 
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
+
+.ms_rating-stars {
+  img {
+    width: 7%;
+  }
+}
 </style>
