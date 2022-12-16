@@ -27,7 +27,7 @@ export default {
       </div>
     </div>
   </div>
-</template>
+</template> 
 
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
