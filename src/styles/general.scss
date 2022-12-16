@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Bebas Neue', cursive;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  max-width: 75rem;
+  margin: 0 auto;
+}
