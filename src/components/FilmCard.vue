@@ -1,9 +1,10 @@
 <script>
+
 export default {
   props: {
     info: Object,
   },
-};
+}
 </script>
 
 <template>
@@ -14,10 +15,16 @@ export default {
       <p class="card-text">{{ info.original_title }}</p>
       <p class="card-text">{{ info.vote_average }}</p>
       <p class="card-text">{{ info.overview }}</p>
-      <p class="card-text">{{ info.original_language }}</p>
+      <p class="card-text">{{ info.original_language }}
+        <span>
+          <span class="px-3 fi fi-eu"></span>
+        </span>
+      </p>
+
     </div>
   </div>
 </template>
+
 
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;

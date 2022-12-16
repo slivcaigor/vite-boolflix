@@ -14,13 +14,13 @@ export default {
     }
   },
   methods: {
-    // The method takes the first element of the MovieList array and pushes it to the end of the array. This has the effect of shifting all of the elements in the array to the left by one position.
+    // The method takes the first element of the movieList array and pushes it to the end of the array. This has the effect of shifting all of the elements in the array to the left by one position.
     shiftSlidesLeft() {
-      this.store.MovieList.push(this.store.MovieList.shift());
+      this.store.movieList.push(this.store.movieList.shift());
     },
-    // The method does the opposite, taking the last element of the MovieList array and unshifting it to the beginning of the array, effectively shifting all of the elements to the right by one position.
+    // The method does the opposite, taking the last element of the movieList array and unshifting it to the beginning of the array, effectively shifting all of the elements to the right by one position.
     shiftSlidesRight() {
-      this.store.MovieList.unshift(this.store.MovieList.pop());
+      this.store.movieList.unshift(this.store.movieList.pop());
     },
     // The method calls the shiftSlidesLeft method, and then sets the activeImage property to the previous value minus one. This has the effect of showing the next image in the array.
     nextImage() {
@@ -51,7 +51,7 @@ export default {
   <div class="container-slides">
     <div class="ms_cards container">
       <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4">
-        <div class="col" v-for="(film, index) in store.MovieList" :key="film.id">
+        <div class="col" v-for="(film, index) in store.movieList" :key="film.id">
           <FilmCard v-if="index <= 3" :info="film" />
         </div>
       </div>
@@ -72,7 +72,6 @@ export default {
 }
 
 .container-slides {
-  padding-top: 10vh;
   @include center();
   position: relative;
 }
