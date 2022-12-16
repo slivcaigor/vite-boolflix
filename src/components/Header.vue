@@ -37,7 +37,7 @@ export default {
 };
 </script>
 
-<template>
+<template >
 
   <AppSearch @performSearch="searchFilm" />
 
