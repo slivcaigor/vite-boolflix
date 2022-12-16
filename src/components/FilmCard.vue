@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-  <div class="card h-100">
+  <div class="card h-100 m-0">
     <img :src="`https://image.tmdb.org/t/p/original${info.poster_path}`" class="card-img-top" :alt="info.title">
     <div class="card-body">
       <h5 class="card-title">Title: {{ info.title }}</h5>

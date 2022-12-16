@@ -51,7 +51,7 @@ export default {
   <div class="container-slides">
     <div class="ms_cards container">
       <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4">
-        <div class="col" v-for="(film, index) in store.movieList" :key="film.id">
+        <div class="col" v-for="(film, index) in store.movieList.filter(movie => movie.poster_path)" :key="film.id">
           <FilmCard v-if="index <= 3" :info="film" />
         </div>
       </div>
@@ -68,7 +68,7 @@ export default {
 @use '../styles/partials/mixins' as *;
 
 .container {
-  max-width: 1500px !important;
+  max-width: 1200px !important;
 }
 
 .container-slides {
