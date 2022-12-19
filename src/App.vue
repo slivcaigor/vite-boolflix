@@ -17,6 +17,9 @@ export default {
 </script>
 
 <template>
+
+
+
   <Header />
   <HomeMain />
 </template>

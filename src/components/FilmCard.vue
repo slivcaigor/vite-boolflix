@@ -32,7 +32,7 @@ export default {
 </script>
 
 <template>
-  <div class="card">
+  <div v-if="info.title && info.original_title && info.overview" class="card">
     <div class="front">
       <img :src="`https://image.tmdb.org/t/p/original${info.poster_path}`" :alt="info.title">
     </div>

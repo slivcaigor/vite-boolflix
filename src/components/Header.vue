@@ -7,7 +7,7 @@ import axios from 'axios';
 export default {
   components: {
     AppSearch,
-    FilmList
+    FilmList,
   },
   data() {
     return {
@@ -40,7 +40,6 @@ export default {
 <template >
 
   <AppSearch @performSearch="searchFilm" />
-
 </template>
 
 <style lang="scss" scoped>
