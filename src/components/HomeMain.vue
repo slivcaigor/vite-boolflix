@@ -19,6 +19,8 @@ export default {
 <template>
 
   <div class="wrapper-films">
+
+
     <FilmList />
     <HomeSection />
   </div>
@@ -27,9 +29,4 @@ export default {
 
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
-
-
-.wrapper-films {
-  padding-top: 6em;
-}
 </style>

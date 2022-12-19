@@ -44,17 +44,19 @@ export default {
 </script>
 
 <template>
-  <div class="container-slides">
-    <div class="ms_cards container">
-      <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4 m-0 p-0 justify-content-center">
-        <div class="col" v-for="(film, index) in store.movieList.filter(movie => movie.poster_path && movie.overview)"
-          :key="film.id">
-          <FilmCard v-if="index <= 4" :info="film" @mouseover="pause" @mouseleave="start" />
+  <div class="position" v-if="store.movieList.filter(movie => movie.poster_path && movie.overview).length > 0">
+    <div class="container-slides">
+      <div class="ms_cards container">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4 m-0 p-0 justify-content-center">
+          <div class="col" v-for="(film, index) in store.movieList.filter(movie => movie.poster_path && movie.overview)"
+            :key="film.id">
+            <FilmCard v-if="index <= 4" :info="film" @mouseover="pause" @mouseleave="start" />
+          </div>
         </div>
       </div>
+      <div class="prev" @click="prevImage"></div>
+      <div class="next" @click="nextImage"></div>
     </div>
-    <div class="prev" @click="prevImage"></div>
-    <div class="next" @click="nextImage"></div>
   </div>
 
 </template>
@@ -63,6 +65,14 @@ export default {
 @use '../styles/general.scss' as *;
 @use '../styles/general.scss' as *;
 @use '../styles/partials/mixins' as *;
+
+.position {
+  position: absolute;
+  z-index: 777;
+  bottom: -77px;
+  right: 0;
+  left: 0;
+}
 
 .container {
   max-width: 1700px !important;

@@ -108,6 +108,13 @@ export default {
     transition: transform .6s linear;
   }
 
+  .front {
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
   .back {
     background: rgba(0, 0, 0, .8);
     transform: perspective(600px) rotateY(180deg);

@@ -38,8 +38,7 @@ export default {
 </script>
 
 <template >
-
-  <div class="container-fluid g-0">
+  <div class="container-fluid g-0 position-relative">
     <div class="navigation-wrapper">
       <div class="header-logo">
         <img class="margin-auto" src="../assets/img/Logo.png" alt="Netflix Logo">
@@ -52,19 +51,12 @@ export default {
         <div class="jumbo-gradient"></div>
       </div>
     </div>
-
-
-
     <div class="jumbo-text">
       <h1>Festeggia Star Wars Day.</h1>
       <h2>Goditi il piano Base gratis per 7 giorni.</h2>
       <AppSearch @performSearch="searchFilm" />
     </div>
   </div>
-
-
-
-
 </template>
 
 <style lang="scss" scoped>
@@ -102,6 +94,7 @@ export default {
   .jumbo {
     position: relative;
     height: 750px;
+    border-bottom: 8px solid #222;
 
     .jumbo-image {
       height: 100%;
