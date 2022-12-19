@@ -94,7 +94,6 @@ export default {
   .jumbo {
     position: relative;
     height: 750px;
-    border-bottom: 8px solid #222;
 
     .jumbo-image {
       height: 100%;

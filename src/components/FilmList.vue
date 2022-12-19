@@ -13,25 +13,27 @@ export default {
       timer: 0,
     }
   },
+  computed: {
+    // returns a new array containing only the elements from this.store.movieList that satisfy a certain condition, if both a poster_path and an overview property available
+    filteredMovies() {
+      return this.store.movieList.filter(movie => movie.poster_path && movie.overview);
+    },
+    // extract a section from the filteredMovies array using slice, start index is activeImage and end is activeImage + 5
+    displayedMovies() {
+      return this.filteredMovies.slice(this.activeImage, this.activeImage + 5);
+    },
+  },
   methods: {
-    shiftSlidesLeft() {
-      this.store.movieList.push(this.store.movieList.shift());
-    },
-    shiftSlidesRight() {
-      this.store.movieList.unshift(this.store.movieList.pop());
-    },
     nextImage() {
-      this.shiftSlidesLeft();
-      this.activeImage--;
+      this.activeImage++;
     },
     prevImage() {
-      this.shiftSlidesRight();
-      this.activeImage++;
+      this.activeImage--;
     },
     // start() {
     //   this.timer = setInterval(() => {
     //     this.nextImage();
-    //   }, 5000);
+    //   }, 3000);
     // },
     // pause() {
     //   clearInterval(this.timer);
@@ -44,12 +46,11 @@ export default {
 </script>
 
 <template>
-  <div class="position" v-if="store.movieList.filter(movie => movie.poster_path && movie.overview).length > 0">
+  <div class="position" v-if="filteredMovies.length > 0">
     <div class="container-slides">
       <div class="ms_cards container">
         <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4 m-0 p-0 justify-content-center">
-          <div class="col" v-for="(film, index) in store.movieList.filter(movie => movie.poster_path && movie.overview)"
-            :key="film.id">
+          <div class="col" v-for="(film, index) in displayedMovies" :key="film.id">
             <FilmCard v-if="index <= 4" :info="film" @mouseover="pause" @mouseleave="start" />
           </div>
         </div>
@@ -69,7 +70,7 @@ export default {
 .position {
   position: absolute;
   z-index: 777;
-  bottom: -77px;
+  bottom: -45px;
   right: 0;
   left: 0;
 }

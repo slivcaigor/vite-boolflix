@@ -4,7 +4,7 @@
 
 <template>
   <div class="section-wrapper">
-    <div class="borders">
+    <div class="borders border-section">
       <div class="first-section">
         <div class="section-text">
           <h1>Goditi Netflix sulla tua TV.</h1>
@@ -128,6 +128,11 @@
     }
   }
 
+  .border-section {
+    padding-bottom: 80px !important;
+    border-top: 8px solid #222;
+  }
+
   .borders {
     padding-bottom: 150px;
     border-bottom: 8px solid #222;
@@ -137,7 +142,7 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 150px auto;
     max-width: 1100px;
 
     .section-image-container {

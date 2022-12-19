@@ -5,20 +5,6 @@ export default {
   props: {
     info: Object,
   },
-  computed: {
-    rating() {
-      return Math.round(this.info.vote_average / 2);
-    },
-    languageClass() {
-      if (this.info.original_language === 'en') {
-        return 'fi-gb';
-      } else if (this.info.original_language === 'ja') {
-        return 'fi-jp';
-      } else {
-        return `fi-${this.info.original_language}`;
-      }
-    }
-  },
   data() {
     return {
       store,
@@ -35,42 +21,31 @@ export default {
     <div class="back">
       <div class="back-content">
         <div class="card-body">
-          <div class="card-text-movie" v-if="info.title">
-            Movie Title:
+          <template v-if="info.title">
             <h5 class="card-title mt-1">{{ info.title }}</h5>
-            <p class="card-text" v-if="info.original_title !== info.title">
-              Original Movie Title:
-            <h5>
-              {{ info.original_title }}
-            </h5>
-            </p>
-            <p class="card-text mt-1">{{ info.original_language }}
-              <span>
-                <span class="px-3 fi" :class="languageClass"></span>
-              </span>
-            </p>
-          </div>
-          <div class="card-text-series" v-if="info.name">
-            Title TV Series:
-            <h5 class="card-title mt-1">
-              {{ info.name }}
-            </h5>
-            <p class="card-text" v-if="info.original_name !== info.name">
-              Original Title:
-              <span>
-                {{ info.original_name }}
-              </span>
-            </p>
-            <p class="card-text">{{ info.original_language }}
-              <span>
-                <span class="px-3 fi mt-1" :class="languageClass"></span>
-              </span>
-            </p>
-          </div>
+            <template v-if="info.original_title !== info.title">
+              <h5>{{ info.original_title }}</h5>
+            </template>
+          </template>
+          <template v-else>
+            <h5 class="card-title mt-1">{{ info.name }}</h5>
+            <template v-if="info.original_name !== info.name">
+              <h5>{{ info.original_name }}</h5>
+            </template>
+          </template>
+          <p class="card-text mt-1">
+            {{ info.original_language }}
+            <span>
+              <!-- statement in code to avoid creating a new function every time the component is rendered -->
+              <span class="px-3 fi"
+                :class="[info.original_language === 'en' ? 'fi-gb' : (info.original_language === 'ja' ? 'fi-jp' : `fi-${info.original_language}`)]"></span>
+            </span>
+          </p>
           <div class="ms_rating-stars">
             <template v-for="n in 5">
-              <img v-if="n <= rating" src="../assets/img/full-star.png" alt="stella piena">
-              <img v-else src="../assets/img/empty-star.png" alt="stella vuota">
+              <!-- calculation in the template to avoid creating a new function every time the component is rendered -->
+              <img v-if="n <= Math.round(info.vote_average / 2)" src="../assets/img/full-star.png" alt="full star">
+              <img v-else src="../assets/img/empty-star.png" alt="empty star">
             </template>
           </div>
           <p class="card-text ms_card-preview-text">{{ info.overview }}</p>
