@@ -1,12 +1,14 @@
 <script>
 import HomeSection from './HomeSection.vue'
 import FilmList from './FilmList.vue'
+import AppFooter from './AppFooter.vue'
 import { store } from "../store.js";
 
 export default {
   components: {
     HomeSection,
-    FilmList
+    FilmList,
+    AppFooter
   },
   data() {
     return {
@@ -23,6 +25,7 @@ export default {
 
     <FilmList />
     <HomeSection />
+    <AppFooter />
   </div>
 
 </template>

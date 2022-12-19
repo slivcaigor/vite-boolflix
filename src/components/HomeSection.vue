@@ -98,6 +98,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -106,11 +107,12 @@
 
 .section-wrapper {
   margin-top: 363px;
-  padding: 350px 0 100px 0;
+  padding: 350px 0 50px 0;
   background-color: black;
   color: #fff;
   margin-bottom: 0;
   position: relative;
+
 
   .section-text {
     padding: 0 3rem 0 0;
@@ -134,7 +136,7 @@
   }
 
   .borders {
-    padding-bottom: 150px;
+    padding-bottom: 100px;
     border-bottom: 8px solid #222;
   }
 
@@ -233,7 +235,7 @@
   }
 
   .forth-section {
-    padding-top: 100px;
+    padding-top: 50px;
     align-items: center;
     display: flex;
     justify-content: space-between;
