@@ -47,8 +47,7 @@ export default {
   <div class="container-slides">
     <div class="ms_cards container">
       <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4 m-0 p-0 justify-content-center">
-        <div class="col"
-          v-for="(film, index) in store.movieList.filter(movie => movie.poster_path && movie.title && movie.original_title && movie.overview)"
+        <div class="col" v-for="(film, index) in store.movieList.filter(movie => movie.poster_path && movie.overview)"
           :key="film.id">
           <FilmCard v-if="index <= 4" :info="film" @mouseover="pause" @mouseleave="start" />
         </div>
