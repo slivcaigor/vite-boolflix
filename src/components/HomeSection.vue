@@ -19,7 +19,9 @@
             <div class="section-video">
               <div class="video">
                 <video autoplay loop>
-                  <source src="../assets/img/SectionVideo.mp4" type="video/mp4">
+                  <source
+                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
+                    type="video/mp4">
                 </video>
               </div>
             </div>
@@ -35,7 +37,9 @@
             <div class="section-video">
               <div class="video">
                 <video autoplay loop>
-                  <source src="../assets/img/SectionDevicesVideo.mp4" type="video/mp4">
+                  <source
+                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v"
+                    type="video/mp4">
                 </video>
               </div>
             </div>
