@@ -1,7 +1,5 @@
-# Vue 3 + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<h1 align="center">Vue 3 + Vite Netflix Project - Movie API - Ajax Call</h1>
 
-## Recommended IDE Setup
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+![Netflix Italia - Guarda serie TV online, Guarda film online](https://user-images.githubusercontent.com/113249037/208481836-a9c97626-e046-4c70-a2dd-ff277c682089.png)
